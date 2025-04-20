@@ -3,30 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> 
     <title>Document</title>
 </head>
 <body>
     <!-- Main page -->
-    <!-- Nav bar -->
+    <nav class="nav-bar">
+        <div class = "nav-container">
+            <div class="items">
+                <span class="logo">ExamMaker</span>
+            </div>
+            <div class="nav-items">
+                <span class="nav-item">Features</span>
+                <span class="nav-item">Pricing</span>
+                <span class="nav-item">About</span>
+                <span class="nav-item">Contact</span>
+            </div>
+            <div class="sign-items">
+                <span class="login">Login</span>
+                <span class="register">Sign Up</span>
+            </div>
+        </div> 
+    </nav>
+
     <!-- Hero section -->
     <!-- Discription section -->
-    <!-- Topics section -->
+     
+  <section class = "exam-topics">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular Exam Topics</h2>
+        <p>Choose from our wide range of professionally curated exams</p>
+      </div>
+
+      <div class="slider-wrapper">
+        <button id="prev-btn" class="slider-btn left"><i class="fas fa-chevron-left"></i></button>
+
+        <div id="topics-slider" class="slider">
+          <!-- Topic Card Template -->
+          <div class="topic-card">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7db611aaa2-3f2ff70c8c976c83a62f.png" alt="Mathematics">
+            <div class="card-content">
+              <h3>Mathematics</h3>
+              <div class="card-info">
+                <span><i class="far fa-clock"></i> 60 min</span>
+                <span><i class="fas fa-question"></i> 50 Questions</span>
+              </div>
+              <button>Start Exam</button>
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/eb73fd7599-8dd90edc377a550615c3.png" alt="Physics">
+            <div class="card-content">
+              <h3>Physics</h3>
+              <div class="card-info">
+                <span><i class="far fa-clock"></i> 45 min</span>
+                <span><i class="fas fa-question"></i> 40 Questions</span>
+              </div>
+              <button>Start Exam</button>
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/274a2b161e-671decdc3197b0a9bdcd.png" alt="Chemistry">
+            <div class="card-content">
+              <h3>Chemistry</h3>
+              <div class="card-info">
+                <span><i class="far fa-clock"></i> 55 min</span>
+                <span><i class="fas fa-question"></i> 45 Questions</span>
+              </div>
+              <button>Start Exam</button>
+            </div>
+          </div>
+
+          <div class="topic-card">
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/5f627b0312-4525cbab2a480439c528.png" alt="Biology">
+            <div class="card-content">
+              <h3>Biology</h3>
+              <div class="card-info">
+                <span><i class="far fa-clock"></i> 50 min</span>
+                <span><i class="fas fa-question"></i> 60 Questions</span>
+              </div>
+              <button>Start Exam</button>
+            </div>
+          </div>
+        </div>
+
+        <button id="next-btn" class="slider-btn right"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
     <!-- About Team section -->
     <!-- Footer -->
-
-    <!-- Topics Page -->
-
-    <!-- Exam Page -->
-    <!-- Exam Card -->
-    <!-- Timer header -->
-    <!-- Flagged Card -->
-    <!-- Score Card -->
-    
-    
-    <!-- Login -->
-    <!-- Register -->
-
     
     <script src="script.js"></script>
 </body>
