@@ -132,7 +132,9 @@ function checkLoginData(e) {
         alert("Invalid password");
     }
     else {
-        window.location.replace("dashboard.html");
+        userData.state = "loggedin";
+        localStorage.setItem("registeredUser", JSON.stringify(userData));
+        window.location.replace("index.html");
     }
 }
 
@@ -148,7 +150,8 @@ function saveRegisterData(e) {
         firstName: firstName,
         lastName: lastName,
         email: email,
-        password: password
+        password: password,
+        state: "registerd"
     };
 
     localStorage.setItem("registeredUser", JSON.stringify(userData));
