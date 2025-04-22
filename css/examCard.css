@@ -30,6 +30,8 @@ body{
 }
 .cardContent{
     padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 .cardHead{
     display: flex;
@@ -56,6 +58,9 @@ body{
     label{
         display: flex;
         padding: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin: 1rem 0;
         text-indent: 0.5rem;
         border-width: 1px;
         border-radius: 0.5rem;
