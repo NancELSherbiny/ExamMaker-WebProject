@@ -134,7 +134,7 @@ function checkLoginData(e) {
     else {
         userData.state = "loggedin";
         localStorage.setItem("registeredUser", JSON.stringify(userData));
-        window.location.replace("index.html");
+        window.location.replace("Exam.html");
     }
 }
 
