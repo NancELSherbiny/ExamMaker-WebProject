@@ -6,12 +6,16 @@ var examsFileData;
 var ipWithPortAddress="http://127.0.0.1:5500"
 
 var submitAnswerButton = document.getElementById("submit-answer");
+var headerSubjectName = document.getElementById("subjectName");
 
+
+
+var queryString = window.location.search; 
+var subjectName = queryString.split('=')[1];
+
+headerSubjectName.textContent=subjectName;
 
 loadExamsJsonFile();
-
-
-
 
 
 function loadExamsJsonFile(){
