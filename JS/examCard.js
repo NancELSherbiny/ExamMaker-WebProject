@@ -107,9 +107,21 @@ document.addEventListener("DOMContentLoaded", () => {
           flaggedDiv.classList.add("flaggedQuest");
           flaggedDiv.innerHTML = `
             <p>Question ${index + 1}
-              <svg class="svg-inline--fa fa-flag" ...></svg>
+              <svg class="svg-inline--fa fa-flag" aria-hidden="true" focusable="false"
+                                    data-prefix="fas" data-icon="flag" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 448 512" data-fa-i2svg="">
+                                    <path fill="currentColor"
+                                        d="M64 32C64 14.3 49.7 0 32 0S0 14.3 0 32V64 368 480c0 17.7 14.3 32 32 32s32-14.3 32-32V352l64.3-16.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L64 48V32z">
+                                    </path>
+                                </svg>
             </p>
-            <svg class="svg-inline--fa fa-arrow-right flagArrow" ...></svg>
+            <svg class="svg-inline--fa fa-arrow-right flagArrow" aria-hidden="true" focusable="false"
+                                data-prefix="fas" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z">
+                                </path>
+                            </svg>
           `;
           flaggedDiv.onclick = () => {
             currentCard = index;
