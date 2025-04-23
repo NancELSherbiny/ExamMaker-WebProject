@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextBtn = document.getElementById("next-btn");
     const prevBtn = document.getElementById("prev-btn");
     const clearBtn = document.getElementById("clear-btn");
+
+    const flaggedContainer = document.getElementById("flagged-questions-container");
+    const flaggedQuestions = new Set(); // To prevent duplicates
+
   
     fetch('JSON/exams.json')
       .then(response => response.json())
@@ -47,6 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
   
       cards = document.querySelectorAll(".question");
       showCard(currentCard);
+
+      const flagBtn = document.querySelector(".flag");
+      flagBtn.addEventListener("click", () => toggleFlag(currentCard));
+
     }
   
     function showCard(index) {
@@ -82,5 +90,34 @@ document.addEventListener("DOMContentLoaded", () => {
       const selectedOptions = currentQuestion.querySelectorAll('input[type="radio"]');
       selectedOptions.forEach(radio => radio.checked = false);
     };
+
+    function toggleFlag(index) {
+        if (flaggedQuestions.has(index)) {
+          flaggedQuestions.delete(index);
+          // Remove from flagged container
+          const allFlags = flaggedContainer.querySelectorAll(".flaggedQuest");
+          allFlags.forEach(el => {
+            if (el.textContent.includes(`Question ${index + 1}`)) {
+              flaggedContainer.removeChild(el);
+            }
+          });
+        } else {
+          flaggedQuestions.add(index);
+          const flaggedDiv = document.createElement("div");
+          flaggedDiv.classList.add("flaggedQuest");
+          flaggedDiv.innerHTML = `
+            <p>Question ${index + 1}
+              <svg class="svg-inline--fa fa-flag" ...></svg>
+            </p>
+            <svg class="svg-inline--fa fa-arrow-right flagArrow" ...></svg>
+          `;
+          flaggedDiv.onclick = () => {
+            currentCard = index;
+            showCard(currentCard);
+          };
+          flaggedContainer.appendChild(flaggedDiv);
+        }
+      }      
+      
   });
   
