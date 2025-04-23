@@ -1,6 +1,3 @@
-
-var examName = "Mathematics";
-
 var examsFileData;
 
 var ipWithPortAddress="http://127.0.0.1:5500"
@@ -40,7 +37,7 @@ function loadExamsJsonFile(){
 
 function getExamTime() {
     for (var i = 0; i < examsFileData.exams.length; i++) {
-        if (examsFileData.exams[i].title === examName) {
+        if (examsFileData.exams[i].title === subjectName) {
             return examsFileData.exams[i].time;
         }
     }
