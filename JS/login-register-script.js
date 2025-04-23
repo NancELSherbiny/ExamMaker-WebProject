@@ -1,7 +1,7 @@
 
 var form = document.querySelector("form");
-var loginForm=document.getElementById("login-form");
-var registerForm=document.getElementById("register-form");
+var loginForm = document.getElementById("login-form");
+var registerForm = document.getElementById("register-form");
 var inputs = document.querySelectorAll("input");
 
 for (var i = 0; i < inputs.length; i++) {
@@ -86,7 +86,7 @@ function validateField(input) {
 
 
 form.onsubmit = function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
     var valid = true;
 
@@ -98,7 +98,7 @@ form.onsubmit = function (e) {
 
     if (!valid) return;
 
-    
+
     var formId = e.target.id;
 
     if (formId === "register-form") {
@@ -125,16 +125,18 @@ function checkLoginData(e) {
 
     if (email !== userData.email && password !== userData.password) {
         alert("Invalid email or password.");
-    }else if(email !== userData.email){
+    } else if (email !== userData.email) {
         alert("Invalid email");
     }
-    else  if(password !== userData.password){
+    else if (password !== userData.password) {
         alert("Invalid password");
     }
     else {
         userData.state = "loggedin";
         localStorage.setItem("registeredUser", JSON.stringify(userData));
-        window.location.replace("Exam.html");
+
+
+        window.location.replace("index.html#examTopics");
     }
 }
 
