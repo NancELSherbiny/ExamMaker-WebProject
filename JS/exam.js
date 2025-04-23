@@ -1,6 +1,6 @@
 var examsFileData;
 
-var ipWithPortAddress="http://127.0.0.1:5500"
+var ipWithPortAddress="http://127.0.0.1:5500/ExamMaker-WebProject"
 
 var submitAnswerButton = document.getElementById("submit-answer");
 var headerSubjectName = document.getElementById("subjectName");
