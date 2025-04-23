@@ -7,6 +7,8 @@
     <title>ُExam</title>
     <link rel="stylesheet" href="css/examCard.css">
     <link rel="stylesheet" href="css/Exam-nav.css">
+    <link rel="stylesheet" href="css/scorecard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /> 
 </head>
 
 <body>
@@ -51,10 +53,10 @@
                         </div>
                         <div class="question">
                             <p>What is the derivative of f(x) = x² + 3x + 2?</p>
-                            <label><input type="radio" name="q0" value="2x + 3">A) 2x + 3</label><br>
-                            <label><input type="radio" name="q0" value="x² + 3">B) x² + 3</label><br>
-                            <label><input type="radio" name="q0" value="2x">C) 2x</label><br>
-                            <label><input type="radio" name="q0" value="3">D) 3</label><br>
+                            <label><input type="radio" name="q0" value="2x + 3">A) 2x + 3</label>
+                            <label><input type="radio" name="q0" value="x² + 3">B) x² + 3</label>
+                            <label><input type="radio" name="q0" value="2x">C) 2x</label>
+                            <label><input type="radio" name="q0" value="3">D) 3</label>
                         </div>
                         <div class="navigation">
                             <button class="prev" id="prev-btn">
@@ -142,7 +144,62 @@
 
 
 
-    <script src="JS/exam.js"></script>
+
+   
+    <section class="score-section">
+        <h2 class="title">Instant Results &amp; Analysis</h2>
+    
+        <div class="score-card">
+          <div class="chart">
+            <div class="circle-container">
+              <div class="circle-bg"></div>
+              <div class="circle-progress"></div>
+              <div class="circle-inner">
+                <span>80%</span>
+                <span>Score</span>
+              </div>
+            </div>
+            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/7d3fca8714-5ae28a27dd55f78df4f9.png" alt="Trophy">
+            <h3>Great job!</h3>
+            <p>You've passed the exam</p>
+          </div>
+    
+          <div class="breakdown">
+            <h3>Performance Breakdown</h3>
+    
+            <div class="progress-group">
+              <span><span>Correct Answers</span><span>16/20</span></span>
+              <div class="progress-bar"><div class="progress-fill fill-score"></div></div>
+            </div>
+    
+            <div class="progress-group">
+              <span><span>Time Taken</span><span>24:15 min</span></span>
+              <div class="progress-bar"><div class="progress-fill fill-time"></div></div>
+            </div>
+    
+            <div class="progress-group">
+              <span><span>Ranking</span><span>Top 15%</span></span>
+              <div class="progress-bar"><div class="progress-fill fill-rank"></div></div>
+            </div>
+    
+            <div class="buttons">
+              <button class="btn-primary">View Detailed Results</button>
+              <button class="btn-outline">Back to Home</button>
+            </div>
+    
+            <div class="share">
+              <p>Share your results:</p>
+              <div class="share-icons">
+                <span><i class="fab fa-twitter"></i></span>
+                <span><i class="fab fa-facebook-f"></i></span>
+                <span><i class="fab fa-linkedin-in"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <script src="JS/exam.js"></script>
 </body>
 
 </html>
