@@ -24,11 +24,21 @@ document.addEventListener("DOMContentLoaded", () => {
           console.error("Subject not found");
         }
       });
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
   
     function renderQuestions(questions) {
       questionContainer.innerHTML = "";
   
-      questions.forEach((q, index) => {
+      const shuffledQuestions = shuffleArray([...questions]);
+  
+      shuffledQuestions.forEach((q, index) => {
         const div = document.createElement("div");
         div.classList.add("question");
         div.style.display = "none";
@@ -62,8 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
         card.style.display = i === index ? "block" : "none";
       });
   
-      prevBtn.style.display = index > 0 ? "inline-block" : "none";
-      nextBtn.style.display = index < cards.length - 1 ? "inline-block" : "none";
+      prevBtn.style.display = index > 0 ? "flex" : "none";
+      nextBtn.style.display = index < cards.length - 1 ? "flex" : "none";
     
       const progressText = document.getElementById("question-progress");
       if (progressText) {
