@@ -1,4 +1,6 @@
 var examsFileData;
+let startTime; 
+
 
 var ipWithPortAddress="http://127.0.0.1:5500/ExamMaker-WebProject"
 
@@ -18,7 +20,7 @@ loadExamsJsonFile();
 function loadExamsJsonFile(){
     var xhrUsers = new XMLHttpRequest();
 
-    xhrUsers.open("GET", ipWithPortAddress+"/JSON/exams.json");
+    xhrUsers.open("GET", "JSON/exams.json");
     xhrUsers.send();
 
 
@@ -48,12 +50,13 @@ function startTimer(duration, timerDisplay) {
 
     var time=getExamTime();
 
-    var duration = time * 60;
+     duration = time * 60;
+     timerDisplay = document.getElementById("navTimer");
 
-    var timerDisplay = document.getElementById("navTimer");
     var progressBar = document.getElementById("navProgressBar");
     
     var timer = duration;
+     startTime = Date.now();
     var interval = setInterval(() => {
         var minutes = Math.floor(timer / 60);
         var seconds = timer % 60;
@@ -84,9 +87,92 @@ function startTimer(duration, timerDisplay) {
 
 
 function SubmitButtonAlert() {
-    var examPage = document.querySelector(".examPage");
+    const examPage = document.querySelector(".examPage");
+    const scoreCard = document.querySelector(".score-section");
     examPage.style.filter = "blur(20px)";
-    var scoreCard= document.querySelector(".score-section");
-    document.querySelector(".score-section").style.display = "block";
+    scoreCard.style.display = "block";
 
+    const currentExam = examsFileData.exams.find(e => e.title === subjectName);
+    if (!currentExam) return;
+
+    const correctAnswers = currentExam.questions.map(q => q.correct_answer);
+    const questions = currentExam.questions;
+
+    let score = 0;
+    for (let i = 0; i < correctAnswers.length; i++) {
+        if (userAnswers[i] === correctAnswers[i]) {
+            score++;
+        }
+    }
+
+    const percent = Math.round((score / correctAnswers.length) * 100);
+
+    // Update Score Circle
+    const scoreCircle = document.querySelector(".circle-inner span");
+    scoreCircle.textContent = `${percent}%`;
+
+    const pieElement = document.querySelector(".circle-container");
+    if (pieElement) {
+        const angle = (percent / 100) * 360;
+        pieElement.style.background = `conic-gradient(#00b894 ${angle}deg, #eee ${angle}deg)`;
+    }
+
+    // Correct Answers Count
+    const correctGroup = document.querySelectorAll(".progress-group")[0];
+    const correctValueSpan = correctGroup.querySelector("span span:last-child");
+    correctValueSpan.textContent = `${score}/${correctAnswers.length}`;
+    const fillScore = correctGroup.querySelector(".fill-score");
+    if (fillScore) fillScore.style.width = `${percent}%`;
+
+    // Time Taken
+    if (typeof startTime !== 'undefined') {
+        const endTime = Date.now();
+        const timeTakenMs = endTime - startTime;
+        const minutes = Math.floor(timeTakenMs / 60000);
+        const seconds = Math.floor((timeTakenMs % 60000) / 1000);
+        const formatted = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    
+        const timeGroup = document.querySelectorAll(".progress-group")[1];
+        const timeValueSpan = timeGroup.querySelector("span span:last-child");
+        const fillTime = timeGroup.querySelector(".fill-time");
+    
+        const totalAllowedTimeMs = getExamTime() * 60 * 1000;
+        const usedPercentage = Math.min(100, (timeTakenMs / totalAllowedTimeMs) * 100);
+    
+        if (timeValueSpan) timeValueSpan.textContent = `${formatted} min`;
+        if (fillTime) fillTime.style.width = `${usedPercentage}%`;
+    }
+    
+
+    // Ranking
+    const rankGroup = document.querySelectorAll(".progress-group")[2];
+    const rankValueSpan = rankGroup.querySelector("span span:last-child");
+    const fillRank = rankGroup.querySelector(".fill-rank");
+
+    const simulatedTop = Math.max(1, Math.min(100, 100 - percent + Math.floor(Math.random() * 10)));
+    rankValueSpan.textContent = `Top ${simulatedTop}%`;
+    fillRank.style.width = `${100 - simulatedTop}%`; // This line is correct IF fill indicates relative rank    
+    
+
+    // Motivation Message
+    const messageHeader = document.querySelector(".chart h3");
+    const messageParagraph = document.querySelector(".chart p");
+
+    if (percent >= 50) {
+        messageHeader.textContent = "Great job!";
+        messageParagraph.textContent = "You've passed the exam";
+    } else {
+        messageHeader.textContent = "Keep Practicing!";
+        messageParagraph.textContent = "You can do better next time!";
+    }
+
+    // Save to localStorage
+    localStorage.setItem("examResults", JSON.stringify({
+        subject: subjectName,
+        userAnswers,
+        correctAnswers,
+        questions
+    }));
 }
+
+

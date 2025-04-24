@@ -1,3 +1,5 @@
+window.userAnswers = []; 
+
 document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const subject = urlParams.get('subject');
@@ -32,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return array;
     }
+
   
     function renderQuestions(questions) {
       questionContainer.innerHTML = "";
@@ -50,11 +53,12 @@ document.addEventListener("DOMContentLoaded", () => {
         q.choices.forEach(choice => {
           const label = document.createElement("label");
           label.innerHTML = `
-            <input type="radio" name="q${index}" value="${choice}">
+            <input type="radio" name="q${index}" value="${choice}" onchange="userAnswers[${index}] = this.value">
             ${choice}
           `;
           div.appendChild(label);
         });
+        
   
         questionContainer.appendChild(div);
       });
