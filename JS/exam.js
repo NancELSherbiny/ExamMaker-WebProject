@@ -82,7 +82,11 @@ function startTimer(duration, timerDisplay) {
     }, 1000);
 }
 
-//replace with function submitAnswer()
-function tempSubmitButtonAlert() {
-    alert("Time's up")
+
+function SubmitButtonAlert() {
+    var examPage = document.querySelector(".examPage");
+    examPage.style.filter = "blur(20px)";
+    var scoreCard= document.querySelector(".score-section");
+    document.querySelector(".score-section").style.display = "block";
+
 }
