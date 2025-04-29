@@ -18,3 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(element);
     });
 });
+
+document.getElementById('heroGetStartBtn').addEventListener('click', function() {
+    document.getElementById('examTopics').scrollIntoView({ behavior: 'smooth' });
+  });
