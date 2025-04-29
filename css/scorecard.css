@@ -13,7 +13,7 @@
   text-align: center;
   font-size: 2rem;
   font-weight: bold;
-  color: #6A4C93;
+  color: #2563eb;
   margin-bottom: 3rem;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .circle-container {
-  background: conic-gradient(#6A4C93 0% 80%, #E0D3F5 80% 100%);
+  background: conic-gradient(#2563eb 0% 80%, #E0D3F5 80% 100%);
   border-radius: 50%;
   width: 12rem;
   height: 12rem;
@@ -61,7 +61,7 @@
 .circle-inner span:first-child {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #6A4C93;
+  color: #2563eb;
 }
 
 .circle-inner span:last-child {
@@ -92,7 +92,7 @@
 }
 
 .breakdown h3 {
-  color: #6A4C93;
+  color: #2563eb;
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -122,9 +122,9 @@
   border-radius: 999px;
 }
 
-.fill-score { background-color: #6A4C93; width: 80%; }
-.fill-time { background-color: #9F86C0; width: 65%; }
-.fill-rank { background-color: #EC4899; width: 85%; }
+.fill-score { background-color: #1a2c54; width: 80%; }
+.fill-time { background-color: #344c7f; width: 65%; }
+.fill-rank { background-color: #658ce0; width: 85%; }
 
 .buttons {
   display: flex;
@@ -143,18 +143,18 @@
 }
 
 .btn-primary {
-  background-color: #6A4C93;
+  background-color: #2563eb;
   color: white;
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: #5a3f7d;
+  background-color: #0621ee;
 }
 
 .btn-outline {
-  border: 2px solid #6A4C93;
-  color: #6A4C93;
+  border: 2px solid #2563eb;
+  color: #2563eb;
   background: transparent;
 }
 
@@ -180,7 +180,7 @@
   width: 2.5rem;
   height: 2.5rem;
   background: #E0D3F5;
-  color: #6A4C93;
+  color: #2563eb;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,6 +190,6 @@
 }
 
 .share-icons span:hover {
-  background: #9F86C0;
+  background: #638eec;
   color: white;
 }

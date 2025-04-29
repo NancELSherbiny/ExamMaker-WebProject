@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderQuestions(questions) {
       questionContainer.innerHTML = "";
   
-      const shuffledQuestions = shuffleArray([...questions]);
+      const shuffledQuestions = shuffleArray([...questions.map((q, i) => ({ ...q, originalIndex: i }))]);
   
       shuffledQuestions.forEach((q, index) => {
         const div = document.createElement("div");
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         q.choices.forEach(choice => {
           const label = document.createElement("label");
           label.innerHTML = `
-            <input type="radio" name="q${index}" value="${choice}" onchange="userAnswers[${index}] = this.value">
+            <input type="radio" name="q${index}" value="${choice}" onchange="userAnswers[${shuffledQuestions[index].originalIndex}] = this.value">
             ${choice}
           `;
           div.appendChild(label);
