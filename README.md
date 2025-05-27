@@ -12,7 +12,6 @@ To demonstrate proficiency in client-side technologies by creating a full-featur
 - State tracking
 - JSON-driven architecture
 
----
 
 ## 🔗 Live Demo
 
